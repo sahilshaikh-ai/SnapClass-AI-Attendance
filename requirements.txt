@@ -19,3 +19,7 @@ pillow
 
 # UI
 streamlit
+
+# for the voice pipeline
+librosa
+resemblyzer
