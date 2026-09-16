@@ -83,7 +83,7 @@ def predict_attendance(class_image_np):
     if not model_data:
         return detected_student, [], len(encodings)
 
-    clf = model_data.get["clf"]
+    clf = model_data["clf"]
     X_train = model_data["X"]
     y_train = model_data["y"]
 
@@ -104,7 +104,7 @@ def predict_attendance(class_image_np):
         if best_match_score <= resemblance_threshold:
             detected_student[predicted_id] = True
 
-    return detected_student, all_students, len(encoding)
+    return detected_student, all_students, len(encodings)
 
 
 
