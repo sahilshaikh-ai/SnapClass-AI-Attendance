@@ -4,6 +4,9 @@ from src.components.header import header_dashborad
 from src.components.footer import footer_dashboard
 from src.components.dialog_create_subject import create_subject_dialog
 from src.database.db import check_teacher_exist, create_teacher, teacher_login, get_teacher_subjects
+from src.components.subject_card import subject_card
+from src.components.dialog_share_subject import share_subject_dialog
+
 
 def teacher_screen():
     style_base_layout()
@@ -34,6 +37,7 @@ def teacher_dashboard():
 
     if "current_teacher_tab" not in st.session_state:
         st.session_state.current_teacher_tab = "take_attendance"
+
     tab1, tab2, tab3 = st.columns(3)
 
     with tab1: 
@@ -84,19 +88,19 @@ def teacher_tab_manage_subjects():
         if st.button("Create New Subject", width="stretch"):
             create_subject_dialog(teacher_id)
 
-    # LIST all SUBJECTS     
+    # LIST ALL SUBJECTS     
     subjects = get_teacher_subjects(teacher_id)
     if subjects:
         for sub in subjects:
             stats = [
                 ("👥","Students",sub["total_students"]),
-                ("⏰","Classes",sub["total_classes"]),
+                ("⏰","Classes",sub["total_sessions"]),
             ]
         def share_btn():
-            if st.button(f"Share Code: {sub["name"]}", key=f"share_{sub["subject_code"]}", icon=":material/share:"):
+             if st.button(f"Share Code: {sub["name"]}", key=f"share_{sub["subject_code"]}", icon=":material/share:"):
                 share_subject_dialog(sub["name"], sub["subject_code"])
 
-            st.space()
+             st.space()
 
         subject_card(
             name = sub["name"],
@@ -107,7 +111,7 @@ def teacher_tab_manage_subjects():
         )
 
     else: 
-        st.warning("NO SUBJRCTS FOUND. CREATE ONE ABOVE")
+        st.warning("NO SUBJECTS FOUND. CREATE ONE ABOVE")
 
 def teacher_tab_attendance_records():
     st.header("Attendance Records")
