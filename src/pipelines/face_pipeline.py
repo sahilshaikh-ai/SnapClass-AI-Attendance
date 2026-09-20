@@ -33,7 +33,7 @@ def get_face_encodings(image_np):
 
         encodings.append(np.array(face_descriptor))
 
-    return encodings
+    return encodings 
 
 # Training your SVM model
 
