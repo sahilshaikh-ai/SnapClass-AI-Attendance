@@ -20,7 +20,7 @@ def add_photos_dialog():
             st.session_state.photo_tab = "camera"
 
 
-    with t1:
+    with t2:
         type_upload = "primary" if st.session_state.photo_tab == "upload" else "tertiary"
         if st.button("Upload photos", type=type_upload, width="stretch"): 
             st.session_state.photo_tab = "upload"
@@ -38,11 +38,12 @@ def add_photos_dialog():
         if uploaded_files: 
             for f in uploaded_files:
                 st.session_state.attendance_images.append(Image.open(f))
-                st.toast("✅Photo Uploaded Successfully...")
-                st.rerun()
+            st.toast("✅ Photo Uploaded Successfully...")
+            st.rerun()
 
     st.divider()
-    if st.button("Done ✅", type="primary", width="stretch"):
+
+    if st.button("Done", type="primary", width="stretch"):
         st.rerun()
 
 

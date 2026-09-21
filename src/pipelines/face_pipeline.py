@@ -21,6 +21,8 @@ def load_dlib_models():
 
     return detector, sp, fecerec
 
+
+
 def get_face_encodings(image_np): 
     detector, sp, fecerec = load_dlib_models()
     faces = detector(image_np, 1) 
