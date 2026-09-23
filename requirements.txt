@@ -1,3 +1,6 @@
+# UI
+streamlit
+
 numpy
 pandas
 
@@ -17,8 +20,6 @@ segno
 # TO PERFORM IMAGE OPERATIONS
 pillow
 
-# UI
-streamlit
 
 # for the voice pipeline
 librosa
