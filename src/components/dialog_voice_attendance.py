@@ -21,7 +21,7 @@ def voice_attendance_dialog(selected_subject_id):
                 enrolled_students = enrolled_res.data
 
                 if not enrolled_students:
-                    st.warning("No students enrolled in this course")
+                    st.warning("⚠️ No students enrolled in this course")
                     return
 
                 candidates_dict = {
@@ -31,7 +31,7 @@ def voice_attendance_dialog(selected_subject_id):
                 }
 
                 if not candidates_dict: 
-                     st.error("No enrolled students have voice profiles registerd")
+                     st.error("⚠️ No enrolled students have voice profiles registerd")
                      return
 
                 audio_bytes = audio_data.read()
