@@ -10,7 +10,7 @@ def home_screen():
     style_base_layout()
     style_background_home()
 
-    col1, col2 = st.columns(2)
+    col1, col2 = st.columns(2, gap="large")
 
     with col1:
         st.header("I'am Student")
@@ -22,6 +22,7 @@ def home_screen():
             icon_position="right",
         ):
             st.session_state["login_type"] = "student"
+            st.rerun()
 
     with col2:
 
@@ -34,5 +35,6 @@ def home_screen():
             icon_position="right",
         ):
             st.session_state["login_type"] = "teacher"
+            st.rerun()
 
     footer_home()

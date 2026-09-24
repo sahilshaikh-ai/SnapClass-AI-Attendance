@@ -9,7 +9,6 @@ from src.pipelines.voice_pipeline import get_voice_embedding
 from src.database.db import get_all_students, create_student, get_student_subjects, get_student_attendance, unenroll_student_to_subject
 from src.components.dialog_enroll import enroll_dialog
 from src.components.subject_card import subject_card
-from src.components.dialog_auto_enroll import auto_enroll_dialog
 import time 
 
 
