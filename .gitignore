@@ -10,3 +10,4 @@ venv/
 .streamlit/secrets.toml
 
 dist/
+Landing_Page/venv/
